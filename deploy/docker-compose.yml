@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  php-apache:
+    container_name: eunelson-php
+    build:
+      context: ../.
+      dockerfile: ./deploy/Dockerfile
+    depends_on:
+      - db
+    volumes:
+      - ../.:/var/www/html
+    ports:
+      - 8080:80
+  db:
+    container_name: eunelson-db
+    image: mysql:8.0
+    restart: always
+    volumes:
+      - /home/erik/docker_eunelson_bd:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: erik
+      MYSQL_DATABASE: projeto_integrador
+      MYSQL_USER: erik
+      MYSQL_PASSWORD: erik
+    ports:
+    - "3306:3306"

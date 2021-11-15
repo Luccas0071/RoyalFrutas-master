@@ -1,0 +1,6 @@
+#Este arquivo serve para configurar o projeto
+#Não deixando visivel a pasta app para os usuario
+#aplicar determinadas configurações ao diretório em que ele se encontra
+
+
+Options -Indexes
